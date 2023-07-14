@@ -1,5 +1,4 @@
 class ListExercise:
-
     @staticmethod
     def replace(input_list: list[int]) -> list[int]:
         """
@@ -54,4 +53,3 @@ class ListExercise:
                 return index
         else:
             return -1
-
