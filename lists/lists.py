@@ -22,16 +22,16 @@ class ListExercise:
         return input_list
 
     @staticmethod
-    def binary_search(sorted_list: list[int], left: int, right: int, query: int) -> object:
+    def binary_search(sorted_list: list[int], left: int, right: int, query: int) -> int:
         if left > right:
             return -1
         mid = (left + right) // 2
         if query == sorted_list[mid]:
             return mid
         elif query < sorted_list[mid]:
-            return ListExercise.binary_search(sorted_list, left, mid - 1, query)
+            return int(ListExercise.binary_search(sorted_list, left, mid - 1, query))
         else:
-            return ListExercise.binary_search(sorted_list, mid + 1, right, query)
+            return int(ListExercise.binary_search(sorted_list, mid + 1, right, query))
 
     @staticmethod
     def search(input_list: list[int], query: int) -> int:
