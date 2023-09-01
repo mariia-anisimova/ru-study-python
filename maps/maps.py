@@ -1,4 +1,3 @@
-from functools import reduce
 from typing import Union
 
 
@@ -42,19 +41,20 @@ class MapExercise:
         """
 
         def filter_movies(movies: dict, rating: Union[float, int]) -> int:
-            print('ok')
-            if movies['rating_kinopoisk'] != '' and float(movies['rating_kinopoisk']) >= float(rating):
-                print('good')
-                count_of_letters: int = 0
-                for letter in movies['name']:
-                    if letter.lower() == 'и':
-                        count_of_letters += 1
-                return count_of_letters
-
+            if movies['rating_kinopoisk'] != '':
+                if float(movies['rating_kinopoisk']) >= float(rating):
+                    count_of_letters: int = 0
+                    for letter in movies['name']:
+                        if letter == 'и':
+                            count_of_letters += 1
+                    return count_of_letters
+                else:
+                    return 0
+            else:
+                return 0
         list_count_of_letters_i = map(lambda movies: filter_movies(movies, rating), list_of_movies)
-        print(list_count_of_letters_i)
+        return sum(list_count_of_letters_i)
 
-        return reduce((lambda x, y: x+y), list_count_of_letters_i)
 
 
 
