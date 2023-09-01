@@ -11,7 +11,7 @@ class ListExercise:
 
         if input_list:
             max_numb = input_list[0]
-            for value in input_list[1:]:
+            for value in input_list[1::]:
                 if value > max_numb:
                     max_numb = value
 
@@ -45,8 +45,11 @@ class ListExercise:
         """
         if input_list:
             input_list.sort()
-            left, right = 0, len(input_list) - 1
+            (left, right) = (0, len(input_list) - 1)
             index = ListExercise.binary_search(input_list, left, right, query)
-            return index
+            if index != -1:
+                return index
+            else:
+                return index
         else:
             return -1
