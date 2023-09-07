@@ -54,10 +54,3 @@ class MapExercise:
                 return 0
         list_count_of_letters_i = map(lambda movies: filter_movies(movies, rating), list_of_movies)
         return sum(list_count_of_letters_i)
-
-
-
-
-
-
-
