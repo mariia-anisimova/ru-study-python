@@ -1,9 +1,7 @@
 from typing import Any, Callable, List, Tuple
-from multiprocessing import Pool
 
 
 class FilterMapExercise:
-
     @staticmethod
     def filter_map(func: Callable[[Any], Tuple[bool, Any]], input_array: List[Any]) -> List[Any]:
         """
@@ -20,8 +18,8 @@ class FilterMapExercise:
         list_result_func: List[any] = []
 
         for element in input_array:
-            result_func = func(element)
-            if result_func[0]:
-                list_result_func.append(result_func[1])
+            flag, value = func(element)
+            if flag:
+                list_result_func.append(value)
 
         return list_result_func
